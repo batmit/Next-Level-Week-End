@@ -1,0 +1,34 @@
+Comunica com objetos, você manda um comando para uma caixa e ela responde de alguma fora, da seu jeito
+Usar o ponto para uma fincionalidade e também o ()
+(para sinalizar que não é um objeto e sim uma atribuiçao se deve usar "" )
+
+o HTML lê as coisas linha por linha, logo para se colocar a tag string antes o body eu vouter que colocar no head and colocar defer, e devo colocar em um outro arquivo
+
+Tipos de dados = ////////////
+String = tudo dentro de aspas = "" = ''
+Null = dados inexistentes, quando o comando busca na caixa e não acha ele devolve um valor null 
+Boolean = true or false
+Array = [], organiza listas e dados
+objeto = {}
+////////////////////////////
+==================================NO NAVEGADOR
+
+document.location.href = "https://google.com"
+
+(é o objeto principal, é como se fosse a caixa maior)
+(location também é um objeto de localização)
+(o href é uma funcionalidade do location de http://)
+(atribui um valor para um objeto dentro de um objeto, dentro de uma caixa)
+
+
+document.queryselector("#containder").style.width = "500px"
+
+
+(seleciona a caixa document)
+(o queryselector vai procurar o que eu colocar entre aspas)
+(a caixa te retorna um elemento HTML)
+(aí o objeto style seleciona o objeto dentro dele, o width)
+(aí quando você da uma função para esse objeto, le já achou ele e selecionou um objeto e da um comando para ele de 500px ele te responde, não importa como mais ele te respondeu e te devolveu um valor denmtro da caixa)
+
+
+defer = lê tudo um tempo depois, é util para colocar a string antes do body

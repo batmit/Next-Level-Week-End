@@ -1,0 +1,43 @@
+Lugar para guardar dados
+//////////////responsabilidades:
+Receber pedidos dos clientes
+preparar os pedidosenviar respostas
+lidar com dados da aplicação
+//////////////////////
+Usando gitbash no navegador:
+pwd = ver que pasta você está
+
+
+/////////////////////
+aqui não tem document, não é daquele jeito
+para criar sevidor:
+
+npm init -y
+(npm é responsável por gerenciar pacotes ou dependências, node packge maneger)
+(init é incia)
+(-y paraq começar um projeto na raiz do meu projeto)
+aí cria o packege.json(java script object notashion) -- vai precisar de {}, de aspas "" em tudo == "propriedade" = "valor" 
+
+
+criar os módulos:
+ 
+npm install express
+(chama o npm)
+(usa a função install para instalar)
+(express é uma biblioteca, uma coleção, de ideias, de estratéias que será colocada no projeto)
+agora o express se tornou uma dependência do nlw
+
+npm install nodemon -D
+(essa aplicação faz comque toda vez que eu salvar o server.js ele vai automaticamente reiniciar o servidor)
+(esse menos D para mostar que vai instalar em um local específico da minha máquina)
+(aí você vai na parte de scripts do packege.json e coloca= "dev": "nodemon scr/server.js, e depois ir la no terminal e colocar npm run dev")
+
+para fazer funcionar com o git bash e não com o VSCODE basta abrir ele e digitar os comandos:
+cd /c/nlw
+
+
+GET é quando você procura um endereço na web
+
+para usar o nodemon =
+npm run dev
+dev no caso é o nome que eu dei lá no packege.json

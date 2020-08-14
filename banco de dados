@@ -1,0 +1,6 @@
+sql não é uma liguagem de progamação, ela é uma linguagem que guarda os dados como se fosse um exel
+
+os dados não ficam na aplicação, ficam armazenados no hd para não ser corrompido
+
+tenho que abrir o sqlite database clicando com o botão esquerdo e abrir database
+aí é criado o database.sqlite um pasta onde dentro dela está as tabelas criadas
