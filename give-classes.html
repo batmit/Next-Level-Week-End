@@ -1,0 +1,227 @@
+<!--Primeira linha: Isso mostra que é o HTML5-->
+    <!--Todo conteúdo visível, deverá vir na tag Body-->        
+<!--HTML = hipertexto marcação linguagem / não é uma linguagem de progamação!
+hipertexto == <a> == link-->
+<!--A tag <head> irá configurar o documento-->
+
+
+    <!DOCTYPE html>
+    <html lang="pt_br"> <!--Tudo dentro de uma tag é um atributo-->
+    <head>
+        <meta charset="UTF-8"><!--UTF-8 é o tipo de texto, uma configuração-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--configurações de metadados-->
+        <title>Proffy | Sua plataforma de estudos online</title>
+        
+        <link rel="stylesheet" href="/styles/main.css">
+        <link rel="stylesheet" href="/styles/partials/header.css">
+        <link rel="stylesheet" href="/styles/partials/forms.css">
+        <link rel="stylesheet" href="/styles/partials/page-give-classes.css">
+        <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
+        <!-- busca lá do google fonts fonts personalizadas -->
+        <!--no link so baixa font-size em 400 e 700, pelo espaço e por não fazer muita diferença-->
+        <!-- <style> -->
+    
+            <!-- /*  -->
+             <!-- CSS ==  -->
+             <!-- Cascading -->
+                <!-- Em cascata -->
+             
+              <!-- StyleSheet -->
+                <!-- Folha de estilo -->
+             <!-- */ -->
+    
+    
+            <!-- h1{ -->
+                <!-- color: red; Chave e valor -->
+            <!-- } -->
+             
+            <!-- /* .red{ */                            /*O class é o segundo mais forte, depois do id. É mais forte que o individual*/ -->
+                <!-- /* color: blue; */                 /*Porém, o class na cascata com o id se torna o mais forte*/ -->
+            <!-- /* } */ -->
+    
+            <!-- #page-give-classes{ /*o id é muito forte, e supera os outros atributos*/ -->
+                <!-- color: red; -->
+    
+            <!-- } -->
+    
+            <!-- h1{ -->
+                <!-- color: green; -->
+            <!-- } -->
+            
+             <!-- #page-give-classes h1{ /* A força de castata supera TODOS*/ -->
+                <!-- color: red; -->
+            <!-- } -->
+        <!-- </style>  -->
+
+
+            <script src="/scripts/addField.js" defer> </script>
+    
+    </head>
+    <body id = "page-give-classes">
+    
+        <div id="containder">
+    
+            <header class="page-header"><!--algo que está no cabeçalho-->
+    
+                <div class="top-bar-containder">
+    
+                    <a href="/"><!--essa barra volta para o page-landing-->
+                    <img src="/images/icons/back.svg" alt="Voltar">
+                    </a>             <!--entre aspas é a função e entre sinais é como vai aparecer-->
+                    <img src="/images/logo.svg" alt="Proffy">
+    
+                </div>
+    
+                <div class="header-content">
+    
+                    <strong>
+                        Que incrível que você quer dar Aulas <!--esse strong deixa em negrito-->
+                    </strong>
+                    <p>O primeiro passo, é preencher esse formulário de inscrição</p>
+                </div>
+    
+            </header>
+    
+            <main><!--são semanticos, querem dar significado-->
+                <!--conteúdo principal da página-->
+                <form action="/save-classes" id="create-class" method="POST"><!--esse post deixa os dados escondidos-->
+
+                    <fieldset><!--para fazer agrupamento de dados-->
+                        <legend><!---toda fieldset precisa de uma legend-->
+                            Seus dados
+                        </legend>
+
+                        <div class="input-block">
+                            <label for="name">Nome Completo</label>
+                        <input name="name"  id="name" required>
+                        </div>
+
+                        <div class="input-block">
+                            <label for="avatar">Link da sua foto <small>(Comece em HTTP://)</small></label><!--esse small coloca pequeno-->
+                            <input name="avatar" id="avatar" type="url" required>
+                        </div>
+
+                        <div class="input-block">
+                            <label for="whatsapp">Whatsapp<small>(Somente números)</small></label>
+                            <input name="whatsapp"  id="whatsapp" type="number" required>
+                        </div>
+
+                        <div class="textarea-block">
+                            <label for="bio">Biorafia</label>
+                            <textarea name="bio" id="bio" required></textarea><!--fica maior a resposta, pode mudar de tamanho e pode escrever tudo, não quebrar linha porque senão ele não vai começar direito-->
+                        </div>
+
+
+
+                    </fieldset>
+
+
+                    <fieldset>
+
+                        <legend> 
+                            Sobre a Aula
+                        </legend>
+
+
+                        <div class="select-block">
+
+                            <label for="subject">Matéria</label>
+                            <select name="subject" id="subject" required>
+                                <option value="">Selecione uma opçãoo</option>
+                                <option value="1">Artes</option>
+                                <option value="2">Biologia</option>
+                                <option value="3">Ciências</option>
+                                <option value="4">Educação Física</option>
+                                <option value="5">Física</option>
+                                <option value="6">Geografia</option>
+                                <option value="7">História</option>
+                                <option value="8">Matemática</option>
+                                <option value="9">Português</option>
+                                <option value="10">Química</option> 
+                            </select>
+
+                        </div>
+
+                        <div class="input-block">
+                            <label for="cost">Custo da sua hora/aula <small>(R$)</small></label>
+                            <input name="cost" id="cost" type="number" required >
+
+                        </div>
+
+
+
+                    </fieldset>
+
+                    <fieldset id="schedule-items">
+                        <legend>
+                            Horários Disponíveis
+                            <button type="button" id="add-time">+ Novo Horário</button><!--tem que colocar o type para que o javascript faça a função que eu escrevi em addField-->
+                        </legend>
+
+                        <div class="schedule-item">
+
+                            <div class="select-block">
+
+                                <label for="weekday">Dia da semana</label>
+                                <select name="weekday[]" required><!--o id da página deve ser unico, porque o JavaScript meio que duplica ele-->
+
+                                    <option value="">Selecione uma opção</option>
+                                    <option value="0">Domingo</option>
+                                    <option value="1">Segunda-feira</option>
+                                    <option value="2">Terça-feira</option>
+                                    <option value="3">Quarta=feira</option>
+                                    <option value="4">Quinta-feira</option>
+                                    <option value="5">Sexta-feira</option>
+                                    <option value="6">Sábado</option>
+
+                                </select><!--abre e fecha colchetes para ter mais de um valor-->
+                                
+                           
+                            </div>
+
+                            <div class="input-block">
+
+                                <label for="time_from">Das</label>
+                                <input type="time" name="time_from[]" required>
+                            </div>
+
+                            <div class="input-block">
+
+                                <label for="time_to">Até</label>
+                                <input type="time" name="time_to[]" required>
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+                </form>
+
+                <footer>
+                    <p>
+                        <img src="/images/icons/warning.svg" alt="Aviso Importante!">
+                    
+                        Importante!<br>  <!--esse br quebrab  a linha-->
+                        Preencha todos os dados
+                    </p>
+                    <button type="submit" form="create-class">Salvar Cadastro</button><!--todo button submit que tem em um form vai envair o formulário, mas ele deve estar dentro do formuláro, o que não acontece aqui, por isso coloquei aquele form = "create class"-->
+                </footer>
+            </main>
+    
+    
+        </div>
+                <!-- <h1>Proffy</h1>style = "color = red";   o h1 gasta uma linha toda, ou seja, block -->
+        
+                <!-- <p><span>Aqui: </span> (aí aparece na mesma linha do p) o spam é in line, se tiver outro dele em baixo fica na mesma linha -->
+                <!-- Sua plataforma de estudos online</p>class = "red"; -->
+        
+                <!-- <img src="" alt=""> O alt e um else da vida --> <!--IMAGEM--> 
+        
+                <!-- <button>Estudar</button>class = red -->
+        
+                <!-- <button>Dar Aulas</button> -->
+    
+                <!-- < class="buttons-containder"> -->
+    
+                <!-- <a href="http://google.com">Google</a> --> <!--Fica com a logo do google e clicando ele vai para o GOOGLE-->
+    </body>
+    </html>

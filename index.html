@@ -1,0 +1,115 @@
+<!--Primeira linha: Isso mostra que é o HTML5-->
+    <!--Todo conteúdo visível, deverá vir na tag Body-->        
+<!--HTML = hipertexto marcação linguagem / não é uma linguagem de progamação!
+hipertexto == <a> == link-->
+<!--A tag <head> irá configurar o documento-->
+
+
+    <!DOCTYPE html>
+    <html lang="pt_br"> <!--Tudo dentro de uma tag é um atributo-->
+    <head>
+        <meta charset="UTF-8"><!--UTF-8 é o tipo de texto, uma configuração-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--configurações de metadados-->
+        <title>Proffy | Sua plataforma de estudos online</title>
+
+        <meta name="theme-color" content="#8257e5"><!--para olocar o ícone-->
+
+        <link rel="shortcut icons" href="/images/favicon.png" type="image/png"><!--é o ícone da página-->
+        
+        <link rel="stylesheet" href="/styles/main.css">
+        <link rel="stylesheet" href="/styles/partials/header.css">
+        <link rel="stylesheet" href="/styles/partials/page-landing.css">
+        <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
+        <!-- busca lá do google fonts fonts personalizadas -->
+        <!-- <style> -->
+    
+            <!-- /*  -->
+             <!-- CSS ==  -->
+             <!-- Cascading -->
+                <!-- Em cascata -->
+             
+              <!-- StyleSheet -->
+                <!-- Folha de estilo -->
+             <!-- */ -->
+    
+    
+            <!-- h1{ -->
+                <!-- color: red; Chave e valor -->
+            <!-- } -->
+             
+            <!-- /* .red{ */                            /*O class é o segundo mais forte, depois do id. É mais forte que o individual*/ -->
+                <!-- /* color: blue; */                 /*Porém, o class na cascata com o id se torna o mais forte*/ -->
+            <!-- /* } */ -->
+    
+            <!-- #page-landing{ /*o id é muito forte, e supera os outros atributos*/ -->
+                <!-- color: red; -->
+    
+            <!-- } -->
+    
+            <!-- h1{ -->
+                <!-- color: green; -->
+            <!-- } -->
+            
+             <!-- #page-landing h1{ /* A força de castata supera TODOS*/ -->
+                <!-- color: red; -->
+            <!-- } -->
+        <!-- </style>  -->
+
+        <script src="/scripts/main.js" defer> </script>     <!--procura nessa pasta e somente lê geral depois de um certo tempo-->
+    
+    </head>
+    <body id = "page-landing">
+    
+        <div id="containder">
+            <div class="logo-containder">
+                
+                <img src="/images/logo.svg" alt="Proffy"> 
+    
+                <h2>
+                    Sua plataforma de estudos online
+                </h2>
+    
+            </div>
+    
+            <img class = "hero-image" src="/images/landing.svg" alt="Plataformas de Estudos">
+            <!-- <h1>Proffy</h1>style = "color = red";   o h1 gasta uma linha toda, ou seja, block -->
+        
+            <!-- <p><span>Aqui: </span> (aí aparece na mesma linha do p) o spam é in line, se tiver outro dele em baixo fica na mesma linha -->
+            <!-- Sua plataforma de estudos online</p>class = "red"; -->
+        
+            <!-- <img src="" alt=""> O alt e um else da vida --> <!--IMAGEM-->
+        
+            <!-- <button>Estudar</button>class = red -->
+        
+            <!-- <button>Dar Aulas</button> -->
+    
+            <div class="buttons-containder">
+    
+                    <!-- <a href="http://google.com">Google</a> --> <!--Fica com a logo do google e clicando ele vai para o GOOGLE-->
+    
+                    <a class = "study" href="/study">
+                    <img src="/images/icons/study.svg" alt="Estudar">
+                    Estudar
+                    </a>
+    
+                    <a class = "give-classes" href="/give-classes">
+                    <img src="/images/icons/give-classes.svg" alt="Dar Aulas">
+                    Dar Aulas
+                    </a>
+                
+                    <p class="total-connection">
+                        Total de 200 conexôes já realizadas
+                        <img src="/images/icons/purple-heart.svg" alt="Coração roxo">
+    
+                    </p>
+            </div>
+    
+    
+        </div>
+    
+        
+        <!--<script>
+            document.querySelector("#containder").style.backgroundColor = "red"
+        </script>-->
+    </body>
+    </html>

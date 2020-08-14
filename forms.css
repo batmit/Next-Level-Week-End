@@ -1,0 +1,65 @@
+
+.select-block label,
+.input-block label,
+.textarea-block label {
+    font-size: 1.4rem ;
+    color: var(--color-text-complement);
+
+}
+
+.input-block input,
+.select-block select,
+.textarea-block textarea {
+    width: 100%;
+    height: 5.6rem;
+    margin-top: 0.8rem;
+    border-radius: 0.8rem;
+    background: var(--color-input-background);
+    border: 1px solid var(--color-line-in-white);
+    outline: 0;/*faz uma cor bem forte na borda quando vai selecionar algos*/
+    padding: 0 1.6rem;
+    font: 1.6rem Archivo;
+
+}
+
+.textarea-block textarea{
+    padding: 1.2rem 1.6rem;
+    height: 16.rem;
+    resize: vertical;/*só deixa mexer na verical*/
+
+}
+
+.input-block,
+.textarea-block {
+    position: relative;/*para que o absolute abaixo fique posicionado no input-block
+    em baixo do bottom*/
+}
+
+.input-block:focus-within::after,
+.textarea-block:focus-within::after {/*quando estiver dentro do iput block o elemento em foco vai criar um elemento html somento no que est´a em foco*/
+    /* content:"";precisa ter um conteudo, que pode estar vazio */
+
+    content:"";/*obrigatório*/
+    
+    width: calc(100% - 3.2rem);/*cauculo para ver a largura*/
+    
+    height: 2px;
+   
+    background: var(--color-primary-light);
+    
+    position: absolute; /*ele vai pegar os elementos como se fosse uma folha de papel
+    e vai colocar uma outra folha por cima, ele fica absolutamente posicionado na pág
+    por isso tem que colocar os dados em baixo, para ele ficar em baixo do botão
+    tem que fazer as coisas na tag acima*/
+    left: 1.6rem;
+    
+    bottom:0;
+
+}
+
+label small {
+    font-size: 1.2rem;
+    padding-left: 1.2rem;
+    color: var(--color-small-info);
+    
+}

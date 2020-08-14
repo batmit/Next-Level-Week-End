@@ -1,0 +1,211 @@
+<!--Primeira linha: Isso mostra que é o HTML5-->
+    <!--Todo conteúdo visível, deverá vir na tag Body-->        
+<!--HTML = hipertexto marcação linguagem / não é uma linguagem de progamação!
+hipertexto == <a> == link-->
+<!--A tag <head> irá configurar o documento-->
+
+
+    <!DOCTYPE html>
+    <html lang="pt_br"> <!--Tudo dentro de uma tag é um atributo-->
+    <head>
+        <meta charset="UTF-8"><!--UTF-8 é o tipo de texto, uma configuração-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--configurações de metadados-->
+        <title>Proffy | Sua plataforma de estudos online</title>
+        
+        <link rel="stylesheet" href="/styles/main.css">
+        <link rel="stylesheet" href="/styles/partials/header.css">
+        <link rel="stylesheet" href="/styles/partials/forms.css">
+        <link rel="stylesheet" href="/styles/partials/page-study.css">
+        <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
+        <!-- busca lá do google fonts fonts personalizadas -->
+        <!--no link so baixa font-size em 400 e 700, pelo espaço e por não fazer muita diferença-->
+        <!-- <style> -->
+    
+            <!-- /*  -->
+             <!-- CSS ==  -->
+             <!-- Cascading -->
+                <!-- Em cascata -->
+             
+              <!-- StyleSheet -->
+                <!-- Folha de estilo -->
+             <!-- */ -->
+    
+    
+            <!-- h1{ -->
+                <!-- color: red; Chave e valor -->
+            <!-- } -->
+             
+            <!-- /* .red{ */                            /*O class é o segundo mais forte, depois do id. É mais forte que o individual*/ -->
+                <!-- /* color: blue; */                 /*Porém, o class na cascata com o id se torna o mais forte*/ -->
+            <!-- /* } */ -->
+    
+            <!-- #page-study{ /*o id é muito forte, e supera os outros atributos*/ -->
+                <!-- color: red; -->
+    
+            <!-- } -->
+    
+            <!-- h1{ -->
+                <!-- color: green; -->
+            <!-- } -->
+            
+             <!-- #page-study h1{ /* A força de castata supera TODOS*/ -->
+                <!-- color: red; -->
+            <!-- } -->
+        <!-- </style>  -->
+    
+    </head>
+    <body id = "page-study">
+    
+        <div id="containder">
+    
+            <header class="page-header"><!--algo que está no cabeçalho-->
+    
+                <div class="top-bar-containder">
+    
+                    <a href="/"><!--essa barra volta para o page-landing-->
+                    <img src="/images/icons/back.svg" alt="Voltar">
+                    </a>             <!--entre aspas é a função e entre sinais é como vai aparecer-->
+                    <img src="/images/logo.svg" alt="Proffy">
+    
+                </div>
+    
+                <div class="header-content">
+    
+                    <strong>
+                        Esses são os proffys disponíveis<!--esse strong deixa em negrito-->
+                    </strong>
+    
+                    <form id="search-teachers"><!--formulário-->
+                        
+                        <div class="select-block">
+    
+                            <label for="subject">Matéria</label><!--Ajuda muito na parte visual, fica antes da escolha-->
+                            <select name="subject" id="subject"><!--É o que seleciona, se eu enviar com alguma opção aí o subject vai passar a ter esse valor-->
+    
+                                <option value="" disabled = "" hidden= "">Selecione uma opção</option><!--é a opção de não selecionar que já vem habilitada por padrão-->
+
+                                {%for subject in subjects%}<!--estrutura de repetição da engine-->
+                                        <!--esse loop.index faz com que toda vez que passar o loop aumenta 1: 1, 2-->
+                                    <option value="{{loop.index}}">{{subject}}</option><!--não é salvo por padrão-->
+                                    <!--o selecionado seleciona ele, e quando eu pedir para mostrar ele escolhe o seecionado-->
+
+                                {%endfor%}
+                            </select>
+    
+    
+    
+                        </div>
+                        <div class="select-block">
+    
+                            <label for="weekday" id="weekday">Dia da Semana</label> <!--fica um em cima do outro, como é o padrão inline-->
+                            
+                            
+                            <select name="weekday" id="weekday">
+    
+                                
+                                <option value="" disabled="" hidden="">Selecione uma opção</option>
+
+                                {%for weekday in  weekdays%}<!--esse weekdays subistitui os valores pelos dias da semana-->
+                                    
+                                    <option value="{{loop.index0}}">{{weekday}}<!--esse não tem a opçao de ser selecionado por padrão-->
+
+                                    </option>
+                                
+                                {%endfor%}
+    
+    
+    
+                            </select>
+    
+    
+    
+    
+                        </div>
+                        <div class="input-block">
+    
+                            <label for="time">Hora</label>
+                            <input name="time" id="time" type="time" value= "{{filters.time}}"><!--Esse input parece o do python-->
+                            <!--o type nummber não aceita texto-->
+                            <!--o min e max mostra o mínimo e o máximo-->
+                            <!--posso usar também: "number" min="0" max="24"-->
+    
+                        </div>
+
+                        <button type="submit">Filtrar</button><!--quando tem um botton tipo submit em um form ele envia o formulário para o back-end-->
+                    </form>
+    
+                </div>
+    
+            </header>
+    
+            <main><!--são semanticos, querem dar significado-->
+
+                <!--<h1>{{title}}</h1><!--assim eu estou fazendo uso do objeto selecionado no server.js e renderizado pelo nunchucks-->
+                
+
+                {% if proffys == "" %}
+
+                <p class="no-results">  Nenhum professor encontrado com a sua pesquisa </p>
+
+
+                {% else %}
+
+
+                    {%for proffy in proffys%} <!--essa estrutura de repetição foi criada pela engine nunchucks-->
+
+                    <article class="teacher-item"><!--repete o que tem no meio várias vezes-->
+                        <header>
+                            <img 
+                            src="{{proffy.avatar}}" 
+                            alt="{{proffy.name}}">  
+                            <div>
+                                <strong>
+                                    {{proffy.name}}
+                                </strong>
+                                <span>{{proffy.subject}}</span>
+                            </div>
+                        </header>
+        
+                        <p>
+                            {{proffy.bio}}
+                        </p>
+                        <footer>
+                            <p>
+                                Preço/hora: <strong>R$ {{proffy.cost}}</strong>
+                            </p>
+                            <a href="http://api.whatsapp.com/send?1=pt_BR&phone=55{{proffy.whatsapp}}&text=Tenho interesse na sua aula de {{proffy.subject}} {{proffy.name}}" class="button" target="_blank">
+                            
+                                <img src="/images/icons/whatsapp.svg" alt="whatsapp">Entrar em contato
+                            
+                            </a>
+                        </footer>
+                    </article>
+
+
+
+                    {%endfor%}
+
+                {% endif %}
+
+                <!--conteúdo principal da página-->
+
+            </main>
+    
+    
+        </div>
+                <!-- <h1>Proffy</h1>style = "color = red";   o h1 gasta uma linha toda, ou seja, block -->
+        
+                <!-- <p><span>Aqui: </span> (aí aparece na mesma linha do p) o spam é in line, se tiver outro dele em baixo fica na mesma linha -->
+                <!-- Sua plataforma de estudos online</p>class = "red"; -->
+        
+                <!-- <img src="" alt=""> O alt e um else da vida --> <!--IMAGEM--> 
+        
+                <!-- <button>Estudar</button>class = red -->
+        
+                <!-- <button>Dar Aulas</button> -->
+    
+                <!-- < class="buttons-containder"> -->
+    
+                <!-- <a href="http://google.com">Google</a> --> <!--Fica com a logo do google e clicando ele vai para o GOOGLE-->
+    </body>
+    </html>

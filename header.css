@@ -1,0 +1,81 @@
+
+.page-header{
+    background-color: var(--color-primary);
+    display: flex;/*um do lado do outro*/
+    flex-direction: column;/*deixa alinhado ao começo*/
+}
+
+
+.page-header .top-bar-containder{
+    width: 90%;
+    display: flex;
+    /* align-items: flex-start;se alinha ao topo */
+    align-items: center;
+    justify-content: space-between;/*faz uma espaço entre os itens*/
+    margin: 0 auto;/*espaçamento*/
+
+    padding: 1.6rem 0;/*da uma preenchida em cima e em baixo*/
+
+}
+
+.page-header .top-bar-containder a {
+    height: 3.2rem;
+    transition: opacity 0.2s;/*opacidade é aquela coisa de 1 fica totalmente visível e que 0 fica invisível*/
+
+}
+
+.page-header .top-bar-containder a:hover {
+    opacity: 0.6;
+}
+
+.page-header .top-bar-containder > img{
+    height: 1.6rem;
+
+}
+
+.page-header .header-content{
+    height: 90%;
+    margin: 3.2rem auto;/*organizar os itens ao meio*/
+    position: relative;/*para deixar o absolute lá em baixo na div header*/
+
+}
+
+.page-header .header-content strong {
+    font: 700 3.6rem Archivo;
+    color: var(--color-title-in-primary);
+    line-height: 4.2rem;/*altura da linha*/
+
+}
+
+.page-header .header-content p{
+    max-width: 30rem;
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+    color: var(--color-text-in-primary);
+    margin-top: 2.4rem;
+    
+}
+
+@media (min-width: 700px) {
+    .page-header {
+        height: 340px;
+    }
+    .page-header .top-bar-containder{
+        max-width: 1100px;
+    }
+    .page-header .header-content{
+        max-width: 740px;
+
+        flex: 1 1;/*todo espaço na caixa será preenchido*/
+        padding-bottom: 48px;
+        display: flex;
+        flex-direction: column;/*para não deixar uma ao lado do outro*/
+        justify-content: center;
+        margin: 0rem auto;
+        
+    }
+    .page-header .header-content strong{
+         max-width: 350px; /*para quebrar linha*/
+
+    }
+}
